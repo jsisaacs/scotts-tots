@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Scott's Tots</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+<body>
+    <div id="header">
+        <img id="prisonMike" src="images/prison-mike.jpg" width="200" height="200">
+        <h1>Scott's Tots</h1>
+        <p>This is a subtitle</p>
+    </div>
+    <div id="projectDescription">
+        <h3>Subtitle</h3>
+        <p>Project Description</p>
+    </div>
+    <hr>
+    <div id="createForm">
+        <form>
+            <label for="inputCharacter">Character:</label>
+            <select name="By Character" id="inputCharacter">
+                <option value="michael-scott" selected>Michael Scott</option>
+                <option value="dwight-schrute">Dwight Schrute</option>
+                <option value="jim-halpert">Jim Halpert</option>
+                <option value="pam-beesly">Pam Beesly</option>
+                <option value="ryan-howard">Ryan Howard</option>
+                <option value="andy-bernard">Andy Bernard</option>
+                <option value="kevin-malone">Kevin Malone</option>
+                <option value="stanley-hudson">Stanley Hudson</option>
+                <option value="meredith-palmer">Meredith Palmer</option>
+                <option value="angela-martin">Angela Martin</option>
+                <option value="oscar-martinez">Oscar Martinez</option>
+            </select>
+            <!-- Form inputs -->
+            <label for="quote">Quote:</label>
+            <textarea id="quote" cols="20" rows="5"></textarea> 
+            <label for="episodeTitle"> Episode Title:</label>
+            <input type="text" id="episodeTitle">
+            <label for="rating">Rating:</label>
+            <input type="number" id="rating" min="1" max="5">
+            <button id="createButton">Create</button>
+        </form>
+    </div>
+    <hr>
+    <!-- <div=filterList>
+        <select name="By Character" id="byCharacter">
+            <option value="default" selected>By Character</option>
+            <option value="michael-scott">Michael Scott</option>
+            <option value="dwight-schrute">Dwight Schrute</option>
+            <option value="jim-halpert">Jim Halpert</option>
+            <option value="pam-beesly">Pam Beesly</option>
+            <option value="ryan-howard">Ryan Howard</option>
+            <option value="andy-bernard">Andy Bernard</option>
+            <option value="kevin-malone">Kevin Malone</option>
+            <option value="stanley-hudson">Stanley Hudson</option>
+            <option value="meredith-palmer">Meredith Palmer</option>
+            <option value="angela-martin">Angela Martin</option>
+            <option value="oscar-martinez">Oscar Martinez</option>
+        </select>
+    </div> -->
+    <div id="quoteTable">
+        <table>
+            <!-- Dynamically add to the table from the form -->
+        </table>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
