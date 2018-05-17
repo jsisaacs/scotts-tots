@@ -18,53 +18,20 @@
         <p>Project Description</p>
     </div>
     <hr>
-    <div id="createForm">
-        <form>
-            <label for="inputCharacter">Character:</label>
-            <select name="By Character" id="inputCharacter">
-                <option value="michael-scott" selected>Michael Scott</option>
-                <option value="dwight-schrute">Dwight Schrute</option>
-                <option value="jim-halpert">Jim Halpert</option>
-                <option value="pam-beesly">Pam Beesly</option>
-                <option value="ryan-howard">Ryan Howard</option>
-                <option value="andy-bernard">Andy Bernard</option>
-                <option value="kevin-malone">Kevin Malone</option>
-                <option value="stanley-hudson">Stanley Hudson</option>
-                <option value="meredith-palmer">Meredith Palmer</option>
-                <option value="angela-martin">Angela Martin</option>
-                <option value="oscar-martinez">Oscar Martinez</option>
-            </select>
-            <!-- Form inputs -->
-            <label for="quote">Quote:</label>
-            <textarea id="quote" cols="20" rows="5"></textarea> 
-            <label for="episodeTitle"> Episode Title:</label>
-            <input type="text" id="episodeTitle">
+    <div id="userForm">
+        <p>
+            <label for="character">Character:</label>
+            <input id="character" type="text" name="character" autofocus>
+        </p>
+        <p>
             <label for="rating">Rating:</label>
-            <input type="number" id="rating" min="1" max="5">
-            <button id="createButton">Create</button>
-        </form>
+            <input id="rating" type="number" name="rating" min="1" max="5">
+        </p>
+        <button id="createButton" type="button">Create</button>
     </div>
     <hr>
-    <!-- <div=filterList>
-        <select name="By Character" id="byCharacter">
-            <option value="default" selected>By Character</option>
-            <option value="michael-scott">Michael Scott</option>
-            <option value="dwight-schrute">Dwight Schrute</option>
-            <option value="jim-halpert">Jim Halpert</option>
-            <option value="pam-beesly">Pam Beesly</option>
-            <option value="ryan-howard">Ryan Howard</option>
-            <option value="andy-bernard">Andy Bernard</option>
-            <option value="kevin-malone">Kevin Malone</option>
-            <option value="stanley-hudson">Stanley Hudson</option>
-            <option value="meredith-palmer">Meredith Palmer</option>
-            <option value="angela-martin">Angela Martin</option>
-            <option value="oscar-martinez">Oscar Martinez</option>
-        </select>
-    </div> -->
-    <div id="quoteTable">
-        <table>
-            <!-- Dynamically add to the table from the form -->
-        </table>
+    <div id="list">
+        <ul></ul>
     </div>
     <script src="index.js"></script>
 </body>
