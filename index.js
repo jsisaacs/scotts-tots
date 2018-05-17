@@ -1,5 +1,6 @@
 const app = {
     init: function(selectors) {
+        this.flicks = []
         this.count = 0
         this.list = document.querySelector(selectors.listSelector)
 
@@ -11,18 +12,20 @@ const app = {
             })
     },
 
-    renderListItem: function(flick) {
+    renderListItem(flick) {
         const item = document.createElement('li')
         item.textContent = flick.name
         return item
     },
 
-    handleSubmit: function(ev) {
+    handleSubmit(ev) {
         const f = ev.target
         const flick = {
             id: ++this.count, 
             name: f.flickName.value,
         }
+
+        this.flicks.push(flick)
         
         const item = this.renderListItem(flick)
         this.list.appendChild(item)
