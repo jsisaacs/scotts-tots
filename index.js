@@ -1,40 +1,83 @@
 const app = {
-    init: function(selectors) {
+    init(selectors) {
         this.flicks = []
-        this.count = 0
+        this.max = 0
         this.list = document.querySelector(selectors.listSelector)
-
+        this.template = document.querySelector(selectors.templateSelector)
+        this.favorite = null
+  
         document
             .querySelector(selectors.formSelector)
-            .addEventListener('submit', (ev) => {
+            .addEventListener('submit', ev => {
                 ev.preventDefault()
                 this.handleSubmit(ev)
             })
     },
-
+  
     renderListItem(flick) {
-        const item = document.createElement('li')
-        item.textContent = flick.name
+        const item = this.template.cloneNode(true)
+        item.classList.remove('template')
+        item.dataset.id = flick.id
+        item
+            .querySelector('.flickName')
+            .textContent = flick.name
+
+        function indexInParent(node) {
+            var children = node.parentNode.childNodes
+            var num = 0
+            for (var i=0; i<children.length; i++) {
+                    if (children[i]==node) return num
+                    if (children[i].nodeType==1) num++
+            }
+            return -1
+        }
+
+        const deleteButton = item.children[1].children[1]
+        deleteButton
+            .addEventListener('click', ev => {
+                const indexToDelete = indexInParent(item)
+                this.list.removeChild(item)
+                this.flicks.splice(indexToDelete, 1)
+                console.log(this.flicks)
+            })
+
+        const favoriteButton = item.children[1].children[0]
+        favoriteButton
+            .addEventListener('click', ev => {
+                if (this.favorite == null) {
+                    this.favorite = item
+                    //TODO: make the item's style different
+                    this.favorite.style.setProperty('border-left', '6px solid red')
+                } else {
+                    //TODO: remove the styling on the old favorite
+                    this.favorite.style.setProperty('border-left', 'none')
+                    this.favorite = item
+                    this.favorite.style.setProperty('border-left', '6px solid red')
+                    //apply the styling to the new favorite
+                }
+            })
+  
         return item
     },
 
     handleSubmit(ev) {
         const f = ev.target
         const flick = {
-            id: ++this.count, 
+            id: ++this.max,
             name: f.flickName.value,
         }
-
-        this.flicks.push(flick)
-        
+  
+        this.flicks.unshift(flick)
+  
         const item = this.renderListItem(flick)
-        this.list.appendChild(item)
-
+        this.list.insertBefore(item, this.list.firstElementChild)
+  
         f.reset()
     },
-}
-
-app.init({
-    formSelector: '#flickForm',
-    listSelector: '#flickList',   
-})
+  }
+  
+  app.init({
+        formSelector: '#flickForm',
+        listSelector: '#flickList',
+        templateSelector: '.flick.template',
+  })
