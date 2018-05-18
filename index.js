@@ -38,7 +38,6 @@ const app = {
                 const indexToDelete = indexInParent(item)
                 this.list.removeChild(item)
                 this.flicks.splice(indexToDelete, 1)
-                console.log(this.flicks)
             })
 
         const favoriteButton = item.children[1].children[0]
@@ -46,14 +45,11 @@ const app = {
             .addEventListener('click', ev => {
                 if (this.favorite == null) {
                     this.favorite = item
-                    //TODO: make the item's style different
-                    this.favorite.style.setProperty('border-left', '6px solid red')
+                    this.favorite.style.setProperty('border-left', '2px solid red')
                 } else {
-                    //TODO: remove the styling on the old favorite
-                    this.favorite.style.setProperty('border-left', 'none')
+                    this.favorite.style.setProperty('border-left', '2px solid #69c')
                     this.favorite = item
-                    this.favorite.style.setProperty('border-left', '6px solid red')
-                    //apply the styling to the new favorite
+                    this.favorite.style.setProperty('border-left', '2px solid red')
                 }
             })
   
